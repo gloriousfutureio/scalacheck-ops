@@ -1,14 +1,16 @@
 package org.scalacheck.ops
 
 import org.scalacheck.Gen
-import org.scalacheck.ops.time.{ImplicitJavaTimeGenerators, JavaTimeImplicits}
+import org.scalacheck.ops.time.{ImplicitJavaTimeGenerators, JavaTimeImplicits, TruncatedJavaTimeImplicits}
 
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
 trait ScalaCheckImplicits
   extends ArbitraryAsGen
+  with ImplicitGenFromConfig
   with JavaTimeImplicits
+  with TruncatedJavaTimeImplicits
   with ImplicitJavaTimeGenerators
   with ShrinkLargeTuples {
 
